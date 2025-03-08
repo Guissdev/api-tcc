@@ -25,6 +25,7 @@ app.use('/', saudeController)
 
 app.listen(port, async () => {
 	try {
+		console.log(port)
 		await instance.authenticate()
 		console.log('Servidor e conexão no ar')
 	} catch (err) {

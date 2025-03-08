@@ -14,7 +14,7 @@ router.post('/', async (req, res) => {
 router.get('/:idSegmento', async (req, res) => {
 	try {
 		const { idSegmento } = req.params
-		const usuario = 'mcdantas'
+		const { usuario } = req.query
 		const autorizacoes = await Autorizacoes.findOne({ where: { idSegmento, usuario } })
 		if (autorizacoes === null) {
 			return res.status(400).json({ sucesso: false, data: {}});

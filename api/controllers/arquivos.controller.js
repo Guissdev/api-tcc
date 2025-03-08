@@ -24,8 +24,7 @@ router.post('/', async (req, res) => {
 
 router.put('/', async (req, res) => {
 	try {
-		const { id, nome, valor, url } = req.body;
-		const usuario = 'mcdantas';
+		const { id, nome, valor, url, usuario } = req.body;
 		const arquivos = await Arquivos.update({ nome, valor, url, usuario }, { where: { id }});
 		if (arquivos[0] === 0) {
 			return res.status(400).json({ sucesso: false, data: {} });
